@@ -16,7 +16,22 @@ public class Monumenti {
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
+    }
 
+    public int recordLength(){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            int cont = 0;
+            String line = br.readLine();
+            for (int i = 0; i<line.length();i++){
+                if(line.charAt(i)==';'){
+                    cont++;
+                }
+            }
+            return cont+1;
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
 
