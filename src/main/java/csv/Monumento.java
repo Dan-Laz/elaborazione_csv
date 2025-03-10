@@ -11,8 +11,10 @@ public class Monumento {
     private int identificatore_OSM;
     private double longitudine;
     private double latitudine;
+    private int mio_valore;
+    private boolean cancellato;
 
-    public Monumento(String comune, String provincia, String regione, String nome, String tipo, String anno_inserimento, String data_ora_inserimento, int identificatore_OSM, double longitudine, double latitudine) {
+    public Monumento(String comune, String provincia, String regione, String nome, String tipo, String anno_inserimento, String data_ora_inserimento, int identificatore_OSM, double longitudine, double latitudine, int mio_valore, boolean cancellato) {
         this.comune = comune;
         this.provincia = provincia;
         this.regione = regione;
@@ -23,6 +25,24 @@ public class Monumento {
         this.identificatore_OSM = identificatore_OSM;
         this.longitudine = longitudine;
         this.latitudine = latitudine;
+        this.mio_valore = mio_valore;
+        this.cancellato = cancellato;
+    }
+
+    public int getMio_valore() {
+        return mio_valore;
+    }
+
+    public boolean isCancellato() {
+        return cancellato;
+    }
+
+    public void setMio_valore(int mio_valore) {
+        this.mio_valore = mio_valore;
+    }
+
+    public void setCancellato(boolean cancellato) {
+        this.cancellato = cancellato;
     }
 
     public String getComune() {
