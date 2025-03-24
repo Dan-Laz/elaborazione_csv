@@ -8,7 +8,7 @@ public class Monumento {
     private String tipo;
     private String anno_inserimento;
     private String data_ora_inserimento;
-    private int identificatore_OSM;
+    private String identificatore_OSM;
     private double longitudine;
     private double latitudine;
     private int mio_valore;
@@ -19,7 +19,7 @@ public class Monumento {
         return comune+";"+provincia+";"+regione+";"+nome+";"+tipo+";"+anno_inserimento+";"+data_ora_inserimento+";"+identificatore_OSM+";"+longitudine+";"+latitudine+";"+mio_valore+";"+cancellato;
     }
 
-    public Monumento(String comune, String provincia, String regione, String nome, String tipo, String anno_inserimento, String data_ora_inserimento, int identificatore_OSM, double longitudine, double latitudine, int mio_valore, boolean cancellato) {
+    public Monumento(String comune, String provincia, String regione, String nome, String tipo, String anno_inserimento, String data_ora_inserimento, String identificatore_OSM, double longitudine, double latitudine, int mio_valore, boolean cancellato) {
         this.comune = comune;
         this.provincia = provincia;
         this.regione = regione;
@@ -78,7 +78,7 @@ public class Monumento {
         return data_ora_inserimento;
     }
 
-    public int getIdentificatore_OSM() {
+    public String getIdentificatore_OSM() {
         return identificatore_OSM;
     }
 
@@ -118,7 +118,7 @@ public class Monumento {
         this.data_ora_inserimento = data_ora_inserimento;
     }
 
-    public void setIdentificatore_OSM(int identificatore_OSM) {
+    public void setIdentificatore_OSM(String identificatore_OSM) {
         this.identificatore_OSM = identificatore_OSM;
     }
 

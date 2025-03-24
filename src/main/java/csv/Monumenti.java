@@ -14,7 +14,6 @@ public class Monumenti {
             PrintWriter pw = new PrintWriter(new FileWriter("src/main/java/csv/test.txt"))){
             String line = "";
             while ((line = br.readLine())!=null){
-                line = line.substring(0,line.length()-1);
                 pw.print(line+";"+(int)(Math.random()*11+10)+";"+"false\n");
             }
         }catch(IOException e){
@@ -39,7 +38,7 @@ public class Monumenti {
         }
     }
 
-    //calcolare la lunghezza massima dei record presenti (avanzato: indicando anche la lunghezza massima di ogni campo);
+    //calcolare la lunghezza massima dei record presenti
     public int maxLength(){
         int maxLength=0;
         int cont=0;
@@ -107,6 +106,21 @@ public class Monumenti {
             System.out.println(e.getMessage());
         }
         return out;
+    }
+
+    //Ricercare un record per campo chiave a scelta (se esiste, utilizzare il campo che contiene dati univoci)
+    public String getFromId(String OSMid){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            String line=br.readLine(); //il primo è il nome del campo
+            while((line=br.readLine())!=null){
+                if(line.split(";")[7].equals(OSMid)){
+                    return line;
+                }
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        return "not found";
     }
 
 }

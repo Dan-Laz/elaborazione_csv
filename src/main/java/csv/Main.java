@@ -8,7 +8,8 @@ public class Main {
         System.out.println("lunghezza massima record: "+m.maxLength());
         //m.addSpazi();
         //System.out.println("lunghezza massima record: "+m.maxLength());
-        m.addRecod(new Monumento("Bracca","Bergamo","Lombardia","Monumento degli Alpini","Commemorativo","2025","13:26",5381359,13.4,24.5,12,false));
-        System.out.println(m.getCampi(0,3,6));
+        m.addRecod(new Monumento("Bracca","Bergamo","Lombardia","Monumento degli Alpini","Commemorativo","2025","13:26","5381359",13.4,24.5,12,false));
+        //System.out.println(m.getCampi(0,3,6));
+        System.out.println(m.getFromId("2434250070"));
     }
 }
