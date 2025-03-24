@@ -14,6 +14,11 @@ public class Monumento {
     private int mio_valore;
     private boolean cancellato;
 
+    @Override
+    public String toString() {
+        return comune+";"+provincia+";"+regione+";"+nome+";"+tipo+";"+anno_inserimento+";"+data_ora_inserimento+";"+identificatore_OSM+";"+longitudine+";"+latitudine+";"+mio_valore+";"+cancellato;
+    }
+
     public Monumento(String comune, String provincia, String regione, String nome, String tipo, String anno_inserimento, String data_ora_inserimento, int identificatore_OSM, double longitudine, double latitudine, int mio_valore, boolean cancellato) {
         this.comune = comune;
         this.provincia = provincia;

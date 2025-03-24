@@ -84,4 +84,13 @@ public class Monumenti {
         }
     }
 
+    //Aggiungere un record in coda
+    public void addRecod(Monumento m){
+        try(PrintWriter out = new PrintWriter(new FileWriter("src/main/java/csv/test.txt",true))){
+            out.print(m.toString());
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
