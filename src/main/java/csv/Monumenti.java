@@ -62,6 +62,26 @@ public class Monumenti {
     }
 
     //inserire in ogni record un numero di spazi necessari a rendere fissa la dimensione di tutti i record, senza perdere informazioni.
-
+    public void addSpazi(){
+        int lengthNeeded=maxLength();
+        String result="";
+        try(BufferedReader r = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            String line;
+            while((line=r.readLine())!=null){
+                result+=line;
+                for (int i = line.length(); i<lengthNeeded; i++){
+                    result+=" ";
+                }
+                result+="\n";
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        try(PrintWriter p = new PrintWriter(new FileWriter("src/main/java/csv/test.txt"))){
+            p.print(result);
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

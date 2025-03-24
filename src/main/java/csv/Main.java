@@ -6,5 +6,7 @@ public class Main {
         m.aggiungiValori();
         System.out.println("numero di campi di un record: "+m.recordLength());
         System.out.println("lunghezza massima record: "+m.maxLength());
+        m.addSpazi();
+        System.out.println("lunghezza massima record: "+m.maxLength());
     }
 }
