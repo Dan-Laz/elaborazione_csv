@@ -93,4 +93,20 @@ public class Monumenti {
         }
     }
 
+    //Visualizzare dei dati mostrando tre campi significativi a scelta
+    public String getCampi(int campo1,int campo2, int campo3){
+        String out="";
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            String line;
+            while((line=br.readLine())!=null){
+                String[] split = new String[12];
+                split = line.split(";");
+                out+= split[campo1]+";"+split[campo2]+";"+split[campo3]+"\n";
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        return out;
+    }
+
 }
