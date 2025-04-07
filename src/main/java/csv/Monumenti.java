@@ -123,4 +123,34 @@ public class Monumenti {
         return "not found";
     }
 
+    //Modificare  un record;
+    public void editRecord(String id, String newRecord){
+
+    }
+
+    // Cancellare logicamente un record
+    public void logicalDeleteRecord(String OSMid) {
+        String out="";
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            String line=br.readLine(); //il primo è il nome del campo
+            out += line+"\n";
+            while((line=br.readLine())!=null){
+                if(line.split(";")[7].equals(OSMid)){
+                    out+=line.substring(0, line.length() - 4);
+                    out+="false";
+                }else{
+                    out+=line+"\n";
+                }
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        try(PrintWriter pw = new PrintWriter(new FileWriter("src/main/java/csv/test.txt"))){
+            pw.print(out);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }
