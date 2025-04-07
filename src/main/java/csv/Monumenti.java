@@ -6,7 +6,6 @@ import java.util.EnumSet;
 
 public class Monumenti {
 
-
     //Aggiungere, in coda ad ogni record, un campo chiamato "miovalore", contenente un numero casuale compreso tra 10<=X<=20
     //ed un campo per marcare la cancellazione logica
     public void aggiungiValori(){
@@ -125,7 +124,25 @@ public class Monumenti {
 
     //Modificare  un record;
     public void editRecord(String id, String newRecord){
-
+        String out="";
+        try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/csv/test.txt"))){
+            String line=br.readLine(); //il primo è il nome del campo
+            out += line+"\n";
+            while((line=br.readLine())!=null){
+                if(line.split(";")[7].equals(id)){
+                    out+=newRecord+"\n";
+                }else{
+                    out+=line+"\n";
+                }
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        try(PrintWriter pw = new PrintWriter(new FileWriter("src/main/java/csv/test.txt"))){
+            pw.print(out);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     // Cancellare logicamente un record
@@ -137,7 +154,7 @@ public class Monumenti {
             while((line=br.readLine())!=null){
                 if(line.split(";")[7].equals(OSMid)){
                     out+=line.substring(0, line.length() - 4);
-                    out+="false";
+                    out+="false\n";
                 }else{
                     out+=line+"\n";
                 }
