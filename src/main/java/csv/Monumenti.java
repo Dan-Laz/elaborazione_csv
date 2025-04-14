@@ -169,5 +169,46 @@ public class Monumenti {
         }
     }
 
+    // crea html
+    public void creaHTML(){
+        try(BufferedReader in = new BufferedReader(new FileReader("src/main/java/csv/lazzaroni.csv"));
+            PrintWriter out = new PrintWriter(new FileWriter("src/main/java/csv/test.html"))){
+            out.print("<!DOCTYPE html>\n" +
+                    "<html lang=\"en\">\n" +
+                    "<head>\n" +
+                    "<style>\n" +
+                    "table, th, td {\n" +
+                    "  border:1px solid black;\n" +
+                    "}\n" +
+                    "</style>\n" +
+                    "    <meta charset=\"UTF-8\">\n" +
+                    "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                    "    <title>Monumenti OSM</title>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "   <table style=\"width:100%\">");
+            String line = in.readLine();
+            String[] valori = line.split(";");
 
+            out.print("<tr>\n");
+            for(int i= 0; i<valori.length;i++){
+                out.print("<th>"+valori[i]+"</th>");
+            }
+            out.print("</tr>\n");
+
+            while ((line = in.readLine())!=null){
+                valori = line.split(";");
+                out.print("<tr>\n");
+                for(int i= 0; i<valori.length;i++){
+                    out.print("<td>"+valori[i]+"</td>");
+                }
+                out.print("</tr>\n");
+            }
+            out.print("</table>\n" +
+                    "</body>\n" +
+                    "</html>");
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
